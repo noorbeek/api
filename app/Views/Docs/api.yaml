@@ -1,0 +1,402 @@
+openapi: 3.0.0
+info:
+  title: 'REST API documentation'
+  version: 1.0.0
+  description: |
+
+    This API is a "RESTful" API which according to Wikipedia means the following Representational State Transfer (REST) is an architectural style that defines a set of constraints and properties based on HTTP. Web Services that conform to the REST architectural style, or RESTful web services, provide interoperability between computer systems on the Internet. REST-compliant web services allow the requesting systems to access and manipulate textual representations of web resources by using a uniform and predefined set of stateless operations.
+
+#############
+# Tags
+# Use this to group the requests
+#############
+
+tags:
+- name: General
+  description: "General API rules & methods"
+- name: Querying
+  description: "General SQL querying"
+- name: Authentication
+  description: "Authenticate API client"
+- name: Me
+  description: "Authenticated user resource"
+
+#############
+# PATHS
+#############
+
+paths:
+
+# General
+
+  HTTP-methods:
+    options:
+      summary: 'GET, POST, PUT, DELETE, OPTIONS'
+      tags:
+        - General 
+      description: |
+
+        ## HTTP-methods
+
+        HTTP has defined few sets of methods which indicates the type of action to be performed on the resources.
+          
+          * **GET**: Read record(s) of a resource
+          * **POST**: Create record in a resource
+          * **PUT**: Modify record of a resource
+          * **DELETE**: Delete record of a resource
+
+        **Example**
+
+        ```
+        GET https://api.org.com/resource/ HTTP/1.1
+        GET https://api.org.com/resource/{id}/ HTTP/1.1
+        POST https://api.org.com/resource/ HTTP/1.1
+        PUT https://api.org.com/resource/{id}/ HTTP/1.1
+        DELETE https://api.org.com/resource/{id}/ HTTP/1.1
+        ```
+
+  HTTP-statusses:
+    options:
+      summary: '200, 201, 400, 401, 403, 404, 405, 422, 500'
+      tags:
+        - General 
+      description: |
+
+        ## HTTP-statusses
+
+        When the client raises a request to the server through an API, the client should know the feedback, whether it failed, passed or the request was wrong. HTTP status codes are bunch of standardized codes which has various explanations in various scenarios. The server should always return the right status code. The following are the important categorization of HTTP codes:
+          
+          * **200**: OK
+          * **201**: Created (after POST)
+          * **400**: Invalid input or content by user/client
+          * **401**: Not authenticated
+          * **403**: Authenticated but not authorized
+          * **404**: Not found
+          * **405**: Invalid HTTP-method used on resource
+          * **422**: Unreadable character in content
+          * **500**: Server error
+
+  X-Content-Type:
+    options:
+      summary: 'JSON, JSONP, CSV, XML and PDF'
+      tags:
+        - General 
+      description: |
+
+        ## Content-Types
+
+        The HTTP "X-Content-Type" header field indicates the media type of the associated representation. The following content types are allowed:
+
+          * **application/json**: JSON - JavaScript Object Notation (this is the default)
+          * **text/javascript**: JSONP – JavaScript method
+          * **application/xml**: XML - Extensible Markup Language
+          * **text/csv**: CSV – Comma Separated Values
+          * **application/pdf**: PDF – Export results to PDF
+
+  Developer options:
+    options:
+      summary: 'options=log,debug,describe'
+      tags:
+        - General 
+      description: |
+
+        The "options" parameter allows for the following options:
+
+          * **log**: Prints a log of all SQL queries and values
+          * **debug**: Prints the PHP debug backtrace (when errors)
+          * **describe**: Prints the models properties when the route endpoint is initiated by a model instance
+
+        NOTE - the API options must have "api.dev" set to true.
+
+# Querying
+
+  SELECT:
+    options:
+      summary: 'select=id,name,someField'
+      tags:
+        - Querying 
+      description: |
+
+        ## SELECT
+
+        By default, a resource reponses with all fields. If you want to select fewer fields for instance to increase performance you can use the **select** parameter.
+
+        **Example**
+
+        ```
+        https://api.org/cars/?select=id,name,color
+        ```
+
+  WHERE:
+    options:
+      summary: 'where=id:123+or+(field:foo+and+otherField!bar)'
+      tags:
+        - Querying 
+      description: |
+
+        ## WHERE
+
+        Many resources can be filtered using the **?where=query** parameter. Multiple filters can be added by seperating with a comma (**,**).
+
+        | Operator | Description | Example |
+        | -------- | ----------- | ------- | 
+        | : | Is | .../users?where=surname:smith 
+        | ! | Is not | .../users?where=surname!smith 
+        | * | Is greater than | .../users?where=birthdate*1980-01-01 
+        | - | Is smaller than | .../users?where=birthdate-1980-01-01 
+        | ~ | Is like | .../users?where=jobtitle~sales 
+        | @ | Matches REGEXP | .../users?where=surname@sm*th
+        | -: | Is smaller than or equal | .../users?where=birthdate-:1980-01-01 
+        | *: | Is greater than or equal | .../users?where=birthdate*:1980-01-01 
+        | *- | Is between | .../users?where=birthdate*-1980-01-01,1989-12-31 
+        | -* | Is not between | .../users?where=birthdate-*1980-01-01,1989-12-31 
+        | !@ | Matches not REGEXP | .../users?where=surname!@sm*th
+        | !~ | Is not like | .../users?where=jobtitle!~sales
+
+        **Example**
+
+        ```
+        https://api.org/cars/?where=brand:porsche+and+(model!boxter+or+color@red|orange|yellow)
+        ```
+
+  ORDER:
+    options:
+      summary: 'order=field+desc,otherField+asc'
+      tags:
+        - Querying 
+      description: |
+
+        ## Sorting
+
+        Result records are also sortable using the following parameter:
+
+        **Sort**
+        
+        ```
+        .../users?order=surname+desc,firstname+asc
+        ```
+
+        Use **asc** and **desc** to sort up and down, multiple sorts are possible seperating with a comma.
+
+  SEARCH:
+    options:
+      summary: 'q=xyz'
+      tags:
+        - Querying 
+      description: |
+
+        When using the "q" parameter, the API will return records matching the q-value with multiple model fields.
+
+  PAGING:
+    options:
+      summary: 'items=100&page=5'
+      tags:
+        - Querying 
+      description: |
+
+        ## Pagination
+
+        By default the API only display 50 records. The pagination can however be controlled by the following parameters:
+        
+        **Items**
+        
+        ```
+        .../users?items=100
+        ```
+
+        **Page**
+        
+        ```
+        .../users?items=100&page=5
+        ```
+
+        Will result in this response body containing HATEOAS for easy client side pagination:
+
+        ```
+        {
+          "metadata": {
+            "datetime": "2021-10-11T07:18:15+00:00",
+            "duration": 0.295,
+            "pagination": {
+                "count": 567,
+                "limit": 50,
+                "offset": 250,
+                "pages": 12,
+                "page": 5
+            },
+            "resource": "/mailboxes",
+          ...
+        ```
+  JOIN:
+    options:
+      summary: 'join=organization'
+      tags:
+        - Querying 
+      description: |
+
+        ## Pagination
+
+        You can join a resource to a field if the field is linked to another API resource, for instance
+        
+        **/users**
+        
+        ```
+        "response": [
+          {
+              "id": "4dkrvjro8e",
+              "name": "Administrator",
+              "organization": "4dkrvjro8e"
+          }
+        ]
+        ```
+
+        **/users?join=organization**
+        
+        ```
+        "response": [
+          {
+            "id": "4dkrvjro8e",
+            "name": "Administrator",
+            "organization": {
+                "id": "4dkrvjro8e",
+                "name": "The Code Crowd",
+                "description": "The Code Crowd is dé software ontwikkelaar van het MKB.",
+                "organizationOf": "",
+                "customerOf": "",
+                "street": "Kerkpad",
+                "houseNumber": "2",
+                "houseNumberExtension": null,
+                "zipCode": "8071GG",
+                "city": "Nunspeet",
+                "website": "https:/www.thecodecrowd.nl/",
+                "phoneNumber": "+31341263273",
+                "color": "#6cbaa6"
+            }
+          }
+        ]
+        ```
+
+  # Authentication
+  
+  /auth:
+    post:
+      summary: 'Get JSON web token'
+      tags:
+        - Authentication
+      parameters:
+        - in: path
+          name: username
+          schema: 
+            type: string
+          required: true
+        - in: path
+          name: password
+          schema: 
+            type: string
+          required: true
+      description: |
+
+        ## Authentication
+
+        Retrieve JSON web token.
+
+        **Response**
+
+        ```
+        {
+          "metadata": {
+              "datetime": "2021-10-11T07:07:26+00:00",
+              "duration": 0.1419,
+              "resource": "/auth"
+          },
+          "response": {
+              "organization": "",
+              "startAt": "2021-10-11T07:07:26+00:00",
+              "validity": 60,
+              "endAt": "2021-10-11T08:07:26+00:00",
+              "authorization": "Bearer K0crc0lXejIzYW5ZdXFmamttQ1BQdz09"
+          }
+        }
+        ```
+  
+  # Me
+
+  /me:
+    get:
+      summary: 'Get authenticated user account object'
+      tags:
+        - Me 
+      description: |
+
+        ## Me
+
+        Get authenticated user account object.
+
+        **ME**
+
+        ```
+        "response": {
+          "id": "4dkrvjro8e",
+          "name": "Administrator",
+          "email": "admin@cc.local",
+          "role": 100,
+          "organization": {
+              "id": "4dkrvjro8e",
+              "name": "The Code Crowd",
+              "description": "The Code Crowd is dé software ontwikkelaar van het MKB.",
+              "organizationOf": "",
+              "color": "#6cbaa6"
+          },
+          "createdAt": "2021-09-07 11:26:47",
+          "memberOf": [],
+          "ownerOf": [],
+          "verified": true,
+          "blocked": false,
+          "removed": false,
+          "signature": null
+        }
+        ``` 
+
+  /me/password:
+    post:
+      summary: 'Send password reset link'
+      tags:
+        - Me 
+      description: |
+
+        Sends password reset link to user
+
+  /me/password/:token:
+    get:
+      summary: 'Reset password with token'
+      tags:
+        - Me 
+      description: |
+
+        Sends password reset link to user
+
+#############
+# COMPONENTS
+#############
+
+security:
+
+  - Basic: []
+  - Bearer: []
+
+components:
+
+  securitySchemes:
+
+    Basic:            # arbitrary name for the security scheme
+      type: http
+      scheme: basic
+      basicFormat: JWT
+      description: 'Authorization: **Basic** xxx (base64 encoded accountname:secret)'
+
+    Bearer:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Authorization: **Bearer** xxx (JSON web token retrieved from POST/auth?username=xxx,password=yyy)'
+

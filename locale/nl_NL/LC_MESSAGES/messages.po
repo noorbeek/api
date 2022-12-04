@@ -1,0 +1,601 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CC API\n"
+"POT-Creation-Date: 2021-11-29 23:04+0100\n"
+"PO-Revision-Date: 2021-11-29 23:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: TCC\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: app\n"
+"X-Poedit-SearchPath-1: vendor/cc\n"
+"X-Poedit-SearchPath-2: index.php\n"
+"X-Poedit-SearchPath-3: options.php\n"
+
+#: app/Models/Campaigns.php:281
+msgid "Invalid startsAt format(s) supplied: "
+msgstr "Ongeldig startsAt format opgegeven: "
+
+#: app/Models/Campaigns.php:289
+msgid "Invalid endsAt format(s) supplied: "
+msgstr "Ongeldig startsAt format opgegeven: "
+
+#: app/Models/Campaigns.php:293
+#, php-format
+msgid "The startdate \"%s\" should be before the enddate \"%s\""
+msgstr "De startdatum \"%s\" zou voor de einddatum \"%s\" moeten vallen"
+
+#: app/Models/Referrals.php:56
+msgid "Invalid referral token"
+msgstr "Ongeldige referral token"
+
+#: app/Models/Referrals.php:57
+msgid "Invalid referral user"
+msgstr "Ongeldig referral verkoper"
+
+#: app/Models/Referrals.php:65
+msgid "Invalid referral campaign"
+msgstr "Ongeldige referral actie"
+
+#: app/Models/Referrals.php:104
+msgid "Missing \"campaign\" property"
+msgstr "Ontbrekende \"campaign\" eigenschap"
+
+#: app/Models/Subscriptions.php:276
+msgid "Your organization does not have a valid subscription."
+msgstr "Uw organisatie heeft geen geldig abonnement."
+
+#: app/Models/Transactions.php:214
+msgid "This campaign does not exist in your organization"
+msgstr "Deze actie bestaat niet in uw organisatie"
+
+#: app/Models/Transactions.php:226
+msgid "Invalid product(s) supplied"
+msgstr "Ongeldig producten opgegeven"
+
+#: app/Models/Transactions.php:250
+msgid "transaction does not exist"
+msgstr "transactie bestaat niet"
+
+#: app/Models/Transactions.php:380 app/Models/Transactions.php:419
+msgid "This action is not authorized without a Mollie API key"
+msgstr "De actie is niet toegestaan zonder een Mollie API-sleutel"
+
+#: app/Services/Woocommerce.php:56
+msgid "WooCommerce is not connected"
+msgstr "WooCommerce is niet verbonden"
+
+#: index.php:51
+#, fuzzy, php-format
+#| msgid "Wattup!"
+msgid "Wattu %s p!"
+msgstr "Tjoeptjoep!"
+
+#: vendor/cc/api/app/Authorization.php:71
+msgid "Invalid column role markup: \""
+msgstr "Ongeldige role format \""
+
+#: vendor/cc/api/app/Authorization.php:152
+msgid "Invalid scope markup: \""
+msgstr "Ongeldige scope markup \""
+
+#: vendor/cc/api/app/Authorization.php:164
+#: vendor/cc/api/app/Authorization.php:205
+msgid "You are not authorized to \""
+msgstr "U bent niet geautoriseerd om \""
+
+#: vendor/cc/api/app/Authorization.php:193
+msgid "Invalid group markup: \""
+msgstr "Ongeldige groep markup \""
+
+#: vendor/cc/api/app/Crontab.php:104
+msgid "Invalid cron schedule"
+msgstr "Ongeldig cron schema"
+
+#: vendor/cc/api/app/Datatypes.php:174
+msgid "Invalid datatype "
+msgstr "Ongeldig datatype "
+
+#: vendor/cc/api/app/Error.php:24
+msgid "Unknown error"
+msgstr "Onbekende fout"
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:54
+msgid "Nothing uploaded."
+msgstr "Er zijn geen bestanden geüpload."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:55
+msgid "Amount of uploaded files invalid."
+msgstr "Ongeldige hoeveelheid aan geüploade bestanden."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:63
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+msgstr ""
+"Het geüploade bestand is groter dan het maximaal toegestane in "
+"upload_max_filesize in php.ini."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:64
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
+"the HTML form."
+msgstr ""
+"Het geüploade bestand overschrijdt de MAX_FILE_SIZE richtlijn die is "
+"opgegeven in het HTML-formulier."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:65
+msgid "The uploaded file was only partially uploaded."
+msgstr "Het geüploade bestand is slechts gedeeltelijk geupload."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:66
+msgid "No file was uploaded."
+msgstr "Er is geen bestand geüpload."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:67
+msgid "missing a temporary folder."
+msgstr "er is geen tijdelijke map opgegeven."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:68
+msgid "Failed to write file to disk."
+msgstr "Het bestand kon niet worden opgeslagen."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:69
+msgid "A PHP extension stopped the file upload."
+msgstr "Een PHP extensie heeft het uploaden van het bestand gestopt."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:81
+msgid "Invalid file type uploaded."
+msgstr "Ongeldig bestandstype geüpload."
+
+#: vendor/cc/api/app/Filesystem/Uploads.php:87
+msgid "Filesize exceeds maximum allowed."
+msgstr "De bestandsgrootte overschrijd de maximale hoeveelheid."
+
+#: vendor/cc/api/app/Models.php:70
+msgid "Model \""
+msgstr "Model \""
+
+#: vendor/cc/api/app/Models/Users.php:179
+msgid "Invalid organization"
+msgstr "Ongeldige organisatie"
+
+#: vendor/cc/api/app/Models/Users.php:185
+msgid "The passwords do not match (password, passwordRepeat)"
+msgstr "De nieuwe wachtwoorden komen niet overeen (password, passwordRepeat)"
+
+#: vendor/cc/api/app/Models/Users.php:193
+msgid ""
+"The password must contain of at least 8 lowercase, uppercase, alfanumeric "
+"and special characters"
+msgstr ""
+"Het wachtwoord moet minimaal 8 karakters bevatten met kleine letters, "
+"hoofdletter, cijfers en speciale tekens"
+
+#: vendor/cc/api/app/Models/Users.php:203
+msgid "This email address is already in use"
+msgstr "Dit e-mailadres is al in gebruik"
+
+#: vendor/cc/api/app/Models/Users.php:209
+msgid "You are not allowed to create a: \""
+msgstr "Het is niet toegestaan een \""
+
+#: vendor/cc/api/app/Models/Users.php:231
+#: vendor/cc/api/app/Models/Users.php:318
+msgid "The user does not exist or you are not authorized to view this user"
+msgstr ""
+"Deze gebruiker bestaat niet of u bent niet geautoriseerd deze gebruiker in "
+"te zien"
+
+#: vendor/cc/api/app/Models/Users.php:328
+msgid "You cannot remove yourself ;)"
+msgstr "Je kunt jezelf niet verwijderen ;)"
+
+#: vendor/cc/api/app/Models/Users.php:345
+msgid "No valid username supplied (not an email address)"
+msgstr "Geen geldige gebruikersnaam opgegeven (geen emailadres)"
+
+#: vendor/cc/api/app/Models/Users.php:349
+msgid "No password supplied"
+msgstr "Geen wachtwoord opgegeven"
+
+#: vendor/cc/api/app/Models/Users.php:364
+#: vendor/cc/api/app/Models/Users.php:540
+#: vendor/cc/api/app/Models/Users.php:667
+msgid "Invalid username"
+msgstr "Ongeldige gebruikersnaam"
+
+#: vendor/cc/api/app/Models/Users.php:372
+msgid ""
+"Your email address is not yet verified, check your inbox for the "
+"verification code"
+msgstr ""
+"Je emailadres is nog niet geverifieerd, controleer je inbox voor de "
+"verificatiecode"
+
+#: vendor/cc/api/app/Models/Users.php:384
+msgid "This account is blocked, contact your administrator"
+msgstr "Dit account is geblokkeerd, neem contact op met je beheerder"
+
+#: vendor/cc/api/app/Models/Users.php:392
+msgid "Invalid password"
+msgstr "Ongeldig wachtwoord"
+
+#: vendor/cc/api/app/Models/Users.php:568
+#: vendor/cc/api/app/Models/Users.php:696
+msgid "The mail could not be sent, please try again later."
+msgstr "De email kon niet worden verzonden, probeer het later a.u.b. opnieuw"
+
+#: vendor/cc/api/app/Models/Users.php:572
+msgid "The password reset link has been sent."
+msgstr "De wachtwoord reset link is verstuurd."
+
+#: vendor/cc/api/app/Models/Users.php:572
+msgid "Failed to send the reset link."
+msgstr "De mail kon niet worden verstuurd."
+
+#: vendor/cc/api/app/Models/Users.php:673
+msgid "Account is already verified."
+msgstr "Het account is al geverifieerd."
+
+#: vendor/cc/api/app/Models/Users.php:700
+msgid "The verification mail has been sent."
+msgstr "De verificatiemail is verstuurd."
+
+#: vendor/cc/api/app/Models/Users.php:700
+msgid "Failed to send the verification mail."
+msgstr "De mail kon niet worden verstuurd."
+
+#: vendor/cc/api/app/Notifications/Mail.php:253
+msgid "No recipients found"
+msgstr "Er zijn geen ontvangers gevonden"
+
+#: vendor/cc/api/app/Notifications/Mail.php:269
+msgid "Failed to send mail"
+msgstr "De mail kon niet worden verstuurd"
+
+#: vendor/cc/api/app/Response.php:323 vendor/cc/api/app/Response.php:339
+msgid "File does not exist: \""
+msgstr "Bestand bestaat niet: \""
+
+#: vendor/cc/api/app/Router.php:72
+msgid "You are not authorized to view route: \""
+msgstr "U bent niet geautoriseerd voor deze route: \""
+
+#: vendor/cc/api/app/Router.php:143 vendor/cc/api/app/Router.php:230
+msgid "Route not found: \""
+msgstr "Route niet gevonden \""
+
+#: vendor/cc/api/app/Services/Zabbix.php:322
+#: vendor/cc/api/app/Services/Zabbix.php:472
+msgid "Not a valid IP address: \""
+msgstr "Ongeldig IP-adres: \""
+
+#: vendor/cc/api/app/Session.php:116
+msgid "self could not be created"
+msgstr "Sessie kon niet worden aangemaakt"
+
+#: vendor/cc/api/app/Session.php:195
+msgid "Invalid authorization token"
+msgstr "Ongeldige autorisatietoken"
+
+#: vendor/cc/api/app/Session.php:207
+msgid "Invalid authorization token (basic)"
+msgstr "Ongeldige autorisatietoken (basic)"
+
+#: vendor/cc/api/app/Session.php:219
+msgid "Invalid authorization token (bearer)"
+msgstr "Ongeldige autorisatietoken (bearer)"
+
+#: vendor/cc/api/app/Session.php:230
+msgid "Invalid session"
+msgstr "Ongeldige sessie"
+
+#: vendor/cc/api/app/Session.php:241
+msgid "Invalid user"
+msgstr "Ongeldige gebruiker"
+
+#: vendor/cc/api/app/Sql.php:188
+msgid "Value not allowed: \""
+msgstr "Waarde is niet toegestaan: \""
+
+#: vendor/cc/api/app/Sql.php:230
+msgid "Invalid field \""
+msgstr "Ongeldige veld: \""
+
+#: vendor/cc/api/app/Sql.php:239 vendor/cc/api/app/Sql.php:243
+msgid "Not authorized to view field: \""
+msgstr "U bent niet geautoriseerd voor veld: \""
+
+#: vendor/cc/api/app/Sql.php:417
+msgid "Invalid WHERE clause: Field \""
+msgstr "Ongeldige WHERE: veld \""
+
+#: vendor/cc/api/app/Sql.php:479
+msgid "Invalid WHERE clause: \""
+msgstr "Ongeldige WHERE: \""
+
+#: vendor/cc/api/app/Sql.php:503 vendor/cc/api/app/Sql.php:611
+msgid "Only characters are allowed in aliases: \""
+msgstr "Alleen karakters zijn toegestaan in aliassen: \""
+
+#: vendor/cc/api/app/Sql.php:696
+msgid "SQL order by invalid: "
+msgstr "SQL order by ongeldig: "
+
+#: vendor/cc/api/app/Sql.php:778
+msgid "No data received for INSERT statement"
+msgstr "Geen data ontvangen voor INSERT statement"
+
+#: vendor/cc/api/app/Sql.php:790
+msgid "Not all required fields inserted: \""
+msgstr "Niet alle verplichte velden zijn opgegeven: \""
+
+#: vendor/cc/api/app/Sql.php:871
+msgid "No data received for UPDATE statement"
+msgstr "Geen data ontvangen voor UPDATE statement"
+
+#: vendor/cc/api/app/Sql.php:1114
+msgid "SQL limit "
+msgstr "SQL-limiet"
+
+#: vendor/cc/api/app/Sql.php:1118
+msgid "SQL offset "
+msgstr "SQL-offset"
+
+#: vendor/cc/api/app/Sql.php:1256
+msgid "DELETE statement not allow without WHERE clause"
+msgstr "De DELETE statement is niet toegestaan zonder WHERE"
+
+#: vendor/cc/api/app/Sql/Connections.php:32
+msgid "Connection does not exist: \""
+msgstr "Deze verbinding bestaat niet: \""
+
+#: vendor/cc/api/app/Views/Login.php:423
+msgid "Login"
+msgstr "Inloggen"
+
+#: vendor/cc/api/app/Views/Login.php:428
+msgid "Logoff"
+msgstr "Afmelden"
+
+#: vendor/cc/api/app/Views/Login.php:436
+msgid "Forgot password?"
+msgstr "Wachtwoord vergeten?"
+
+#: vendor/cc/api/app/Views/Login.php:440
+msgid "You are authenticated"
+msgstr "U bent aangemeld"
+
+#~ msgid "The startdate \""
+#~ msgstr "De startdatum \""
+
+#~ msgid "The requested file can not be found at the source"
+#~ msgstr "Het bestand kan niet op de bronschijf gevonden worden"
+
+#~ msgid "Could not upload file."
+#~ msgstr "Kan bestand niet uploaden."
+
+#~ msgid "Can not remove, the article has stock registered."
+#~ msgstr ""
+#~ "Het artikel kan niet worden verwijderd, er is voorraad op geregistreerd."
+
+#~ msgid ""
+#~ "Your organization is (temporarily) disabled. Please contact your "
+#~ "administrator."
+#~ msgstr ""
+#~ "De toegang voor uw organisatie is (tijdelijk) geblokkeerd. Neem a.u.b. "
+#~ "contact op met uw beheerder."
+
+#~ msgid "Your account has been removed."
+#~ msgstr "Uw account is verwijderd."
+
+#~ msgid "Invalid StartDuration"
+#~ msgstr "Ongeldige StartDuration"
+
+#~ msgid "Invalid StartNotice"
+#~ msgstr "Ongeldig StartNotice"
+
+#~ msgid "Invalid RenewNotice"
+#~ msgstr "Ongeldige RenewNotice"
+
+#~ msgid "StartDuration and StartNotice are required but not set."
+#~ msgstr ""
+#~ "\"StartDuration\" en \"StartNotice\" zijn verplicht maar niet opgegeven."
+
+#~ msgid "RenewDuration and RenewNotice are required but not set."
+#~ msgstr ""
+#~ "\"RenewDuration\" en \"RenewNotice\" zijn verplicht maar niet opgegeven."
+
+#, php-format
+#~ msgid "\"%s\" is an invalid date."
+#~ msgstr "\"%s\" is een ongeldige datum."
+
+#~ msgid "Please close all tasks before closing a incident."
+#~ msgstr "Sluit a.u.b. eerst alle taken af voordat u het incident afsluit."
+
+#~ msgid "You have insufficient rights to delete this incident."
+#~ msgstr "U heeft onvoldoende rechten om dit incident te verwijderen."
+
+#~ msgid "The category has to be empty before you can delete it."
+#~ msgstr "De categorie dient leeg te zijn voordat u deze kunt verwijderen."
+
+#~ msgid "Please close all tasks before closing a project."
+#~ msgstr "Sluit a.u.b. eerst alle taken af voordat u het project afsluit."
+
+#~ msgid "You have insufficient rights to delete this project."
+#~ msgstr "U heeft onvoldoende rechten om dit project te verwijderen."
+
+#~ msgid "Debtor and/or creditor ID already exist"
+#~ msgstr "Debiteur- en/of crediteurnummer bestaat al"
+
+#~ msgid "Registrations required but not set"
+#~ msgstr "\"Registraties\" zijn verplicht maar niet opgegeven"
+
+#, php-format
+#~ msgid "Status %s not found"
+#~ msgstr "Status %s is niet gevonden"
+
+#~ msgid "The price can not be lower then the allowed margin."
+#~ msgstr "De prijs mag niet lager zijn dan de toegestane marge."
+
+#, php-format
+#~ msgid "Status \"%s\" is not valid"
+#~ msgstr "\"%s\" is geen geldige status"
+
+#~ msgid ""
+#~ "There are no order templates available. Please contact your administrator."
+#~ msgstr ""
+#~ "Er zijn geen order templates beschikbaar. Neem a.u.b. contact op met uw "
+#~ "beheerder."
+
+#~ msgid "You have not supplied a valid verification code"
+#~ msgstr "Er is geen geldige verificatiecode opgegeven"
+
+#~ msgid "The order is already signed"
+#~ msgstr "De order is reeds ondertekend"
+
+#~ msgid "A task requires an owner, group or context"
+#~ msgstr "Een taak vereist een groep, eigenaar of context"
+
+#~ msgid "It is not allowed to remove a task which is part of a workflow."
+#~ msgstr "U kunt geen taken verwijderen die deel uitmaken van een workflow."
+
+#, php-format
+#~ msgid "Field \"%s\" is not allowed"
+#~ msgstr "Veld \"%s\" is niet toegestaan"
+
+#~ msgid "Invalid employee"
+#~ msgstr "Ongeldige medewerker"
+
+#~ msgid "Invalid priority"
+#~ msgstr "Ongeldige prioriteit"
+
+#~ msgid "PIN-code not set"
+#~ msgstr "PIN-code is niet opgegeven"
+
+#~ msgid "PIN-code not correct"
+#~ msgstr "PIN-code is niet correct"
+
+#, php-format
+#~ msgid ""
+#~ "The password does not match the minimum security requirements; at least "
+#~ "%s characters with at least %s types of the following characters: "
+#~ "lowercase, UPPERCASE, 0-9 and special characters (i.e. !@#$ etc.)."
+#~ msgstr ""
+#~ "Het wachtwoord voldoet niet aan de minimale beveiligingseisen; minstens "
+#~ "%s karakters met minimaal %s karakters uit de volgende typen: kleine "
+#~ "letters, HOOFDLETTERS, 0-9 en speciale karakters (bijv. !@#$ etc.)."
+
+#~ msgid "The supplied role can only be the same or lower than your own role"
+#~ msgstr ""
+#~ "De opgegeven rolgroep kan maximaal hetzelfde niveau zijn als uw eigen "
+#~ "rolgroep"
+
+#~ msgid "The supplied email address is invalid"
+#~ msgstr "Het opgegeven e-mailadres is niet geldig"
+
+#~ msgid "Template required but not set"
+#~ msgstr "\"Template\" is verplicht maar niet opgegeven"
+
+#~ msgid "Group(s) required but not set"
+#~ msgstr "\"Groep\" is verplicht maar niet opgegeven"
+
+#~ msgid "Titel is verplicht"
+#~ msgstr "Titel is verplicht"
+
+#~ msgid "Omschrijving is verplicht"
+#~ msgstr "Omschrijving is verplicht"
+
+#~ msgid "Input does not match requirements, i.e. 1234AB56-A."
+#~ msgstr "De Invoer voldoet niet aan de eisen: bijv. 1234AB56-A."
+
+#, php-format
+#~ msgid "\"%s\" is not valid"
+#~ msgstr "\"%s\" is niet geldig"
+
+#~ msgid "Invalid Pin-code."
+#~ msgstr "Ongeldige Pin-code."
+
+#~ msgid "Device not found."
+#~ msgstr "Apparaat is niet gevonden."
+
+#~ msgid "Extension not found."
+#~ msgstr "Extensie is net gevonden."
+
+#~ msgid "CCTAG already in use"
+#~ msgstr "De CCTAG is al in gebruik"
+
+#~ msgid "Relation not found"
+#~ msgstr "De relatie is niet gevonden"
+
+#~ msgid "IP-address not found"
+#~ msgstr "Het IP-adres is niet gevonden"
+
+#, php-format
+#~ msgid "IP-address \"%s\" not valid"
+#~ msgstr "Het IP-address \"%s\" is niet geldig"
+
+#~ msgid "Subscriber not found"
+#~ msgstr "De subscriber is niet gevonden"
+
+#~ msgid "Provider name not supplied"
+#~ msgstr "De provider naam is niet opgegeven"
+
+#~ msgid "No connection with Xcrm"
+#~ msgstr "Er kan geen verbinding worden gemaakt met Xcrm"
+
+#~ msgid "No connection with Xoms"
+#~ msgstr "Er kan geen verbinding worden gemaakt met Xoms"
+
+#~ msgid "Xoms API error"
+#~ msgstr "Er is een Xoms API frout"
+
+#~ msgid ""
+#~ "Configuration error: API options \"OpenSsl.Key\" and \"OpenSsl.Iv\" "
+#~ "required, but not set."
+#~ msgstr ""
+#~ "API opties \"OpenSsl.Key\" en \"OpenSsl.Iv\" verplicht, maar niet "
+#~ "opgegeven."
+
+#~ msgid "A task requires an owner or a group."
+#~ msgstr "Een taak vereist een groep of een eigenaar."
+
+#~ msgid "Translate ENGLISH"
+#~ msgstr "Vertaal NEDERLANDS"
+
+#~ msgid "A blabla task requires an owner or a group."
+#~ msgstr "Een taak vereist een groep of een eigenaar."
+
+#~ msgid "Account expired"
+#~ msgstr "Account is verlopen"
+
+#~ msgid "Account not (yet) activated."
+#~ msgstr "Het account is nog) niet geactiveerd."
+
+#~ msgid ""
+#~ "You are not a member of a (valid) organization. It may be that your "
+#~ "organizations' access is disabled. Please contact your organizations' "
+#~ "administrator."
+#~ msgstr ""
+#~ "U bent geen lid van een (geldige) organisatie. Het kan zijn dat de "
+#~ "toegang van uw organisatie is uitgeschakeld. Neem a.u.b. contact op met "
+#~ "uw beheerder."
+
+#~ msgid "\"Members\" can not be empty."
+#~ msgstr "\"Members\" mag niet leeg zijn."
+
+#~ msgid "\"Owners\" can not be empty."
+#~ msgstr "\"Owners\" mag niet leeg zijn."
+
+#~ msgid "Please defer ownership to another member before leaving this group."
+#~ msgstr ""
+#~ "Draag a.u.b. het eigenaarschap over naar een ander lid voordat u de groep "
+#~ "verlaat."
+
+#~ msgid "Embedding content is not allowed when requesting \"text/csv\"."
+#~ msgstr "Content insluiten niet toegestaan bij Content-Type \"text/csv\"."

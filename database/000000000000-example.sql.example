@@ -1,0 +1,67 @@
+--
+--
+-- TABLES
+--
+--
+
+-- CREATE
+
+CREATE TABLE `test` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `string` varchar(64) NOT NULL DEFAULT '',
+  `smallNumber` smallint(6) NOT NULL DEFAULT 999,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp(),
+  `text/json` text DEFAULT NULL,
+  `boolean` tinyint(4) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`),
+  FULLTEXT KEY `string` (`string`) -- indexed/memory (fast search)
+)
+COLLATE='utf8mb4_general_ci' 
+ENGINE=InnoDB
+;
+
+-- RENAME
+RENAME TABLE `test` TO `testNewName`;
+
+-- REMOVE
+DROP TABLE `test`;
+
+-- EMPTY
+TRUNCATE TABLE `test`;
+
+--
+--
+-- COLUMNS
+--
+--
+
+-- ADD
+ALTER TABLE `test` ADD `anotherStringy` varchar(64) NOT NULL DEFAULT '';
+
+-- MODIFY
+ALTER TABLE `test` MODIFY `anotherString` varchar(128) NOT NULL DEFAULT 'XYZ';
+
+-- RENAME
+ALTER TABLE `test` RENAME COLUMN `anotherString` TO `anotherStringNewName`;
+
+-- REMOVE
+ALTER TABLE `test` DROP COLUMN `anotherString`;
+
+--
+--
+-- VALUES
+--
+--
+
+-- ADD
+INSERT INTO `test` (`datetime`) VALUES ('2021-09-07 11:26:47');
+
+-- ADD (replace if exists)
+REPLACE INTO `test` (`id`, `datetime`) VALUES (1, '2021-09-07 11:26:47');
+
+-- UPDATE
+UPDATE `test` SET `datetime` = '2021-09-07 11:26:47' WHERE `id` = 1;
+
+-- REMOVE
+DELETE FROM `test` WHERE `id` = 1;

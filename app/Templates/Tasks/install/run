@@ -1,0 +1,5 @@
+<?php
+
+/** Redirect task runner to CC/Api runner */
+
+require 'vendor/cc/api/run';

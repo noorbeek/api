@@ -1,0 +1,2 @@
+ALTER TABLE `files` CHANGE COLUMN `size` `size` INT NOT NULL DEFAULT 0 COLLATE 'utf8mb4_general_ci' AFTER `extension`;
+ALTER TABLE `files` CHANGE COLUMN `scopeId` `scopeId` INT NULL DEFAULT NULL COLLATE 'utf8mb4_general_ci' AFTER `scope`;

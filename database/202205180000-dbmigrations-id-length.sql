@@ -1,0 +1,1 @@
+ALTER TABLE `apiDatabaseMigrations` CHANGE COLUMN `id` `id` char(255) NOT NULL COLLATE 'utf8mb4_general_ci';

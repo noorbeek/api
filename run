@@ -1,0 +1,125 @@
+<?php
+
+namespace CC\Api;
+
+/** Load packages & options */
+
+require 'vendor/autoload.php';
+require 'options.php';
+
+/** Merge dotenv options */
+
+if( file_exists( __DIR__.'/../../../.env') ){
+
+    $dotenv = \Dotenv\Dotenv::createImmutable( __DIR__.'/../../../' );
+    $dotenv -> load();
+
+    foreach($_ENV as $key => $value){
+        
+        Options::set( $key, $value ); } }
+
+/**
+ * Get arguments
+ */
+
+$run = $argv[ 1 ] ?? false;
+$arguments = count( $argv ?? [] ) > 2 ? array_slice( $argv, 2 ) : [];
+
+/**
+ * 
+ * List available tasks
+ * 
+ */
+
+$tasks = $commands = [];
+
+/** Standard tasks */
+
+foreach( scandir( __DIR__ . '/app/Tasks' ) as $task ){
+
+    if( preg_match( '/(.+)\.php$/', $task, $match ) ){
+
+        $tasks[] = __DIR__ . '/app/Tasks/' . $task; $commands[] = strtolower( $match[ 1 ] ); } }
+
+/** Custom tasks */
+
+foreach( Options::get( 'tasks.directories' ) as $directory ){
+
+    foreach( scandir( $directory ) as $task ){
+
+        if( preg_match( '/(.+)\.php$/', $task, $match ) ){
+
+            $tasks[] = $directory . '/'. $task; $commands[] = strtolower( $match[ 1 ] ); } } }
+
+/** 
+ * 
+ * Execute scripts from cli arguments
+ * 
+ */
+
+foreach( $tasks as $task ){
+
+    /** Include script if argument matches task name */
+
+    if( preg_match( '/^[a-z0-9-_\.]+$/i', $run ) && preg_match( '/\/' . $run . '.php$/i', $task ) ){
+
+        require $task; } }
+
+/** 
+ * 
+ * Execute scripts from user input 
+ * 
+ */
+
+if( ! $run ){
+
+    /** List tasks */
+
+    Log::highlight( '
+------------------------------------------------
+-   ╔═╗╔═╗╦  ┌┬┐┌─┐┌─┐┬┌─  ┬─┐┬ ┬┌┐┌┐┌┌─┐┬─┐   -
+-   ╠═╣╠═╝║   │ ├─┤└─┐├┴┐  ├┬┘│ ││││││├┤ ├┬┘   -
+-   ╩ ╩╩  ╩   ┴ ┴ ┴└─┘┴ ┴  ┴└─└─┘┘└┘└┘└─┘┴└─   -
+------------------------------------------------' );
+
+    /** Request input */
+
+    $command = null; while( $command === null ){
+
+        /** List tasks */
+
+        Log::highlight( PHP_EOL . 'Available tasks:' . PHP_EOL ); foreach( $commands as $command ){
+
+            Log::info( $command ); }
+
+        /** Get command */
+            
+        Log::highlight( PHP_EOL . 'Enter command (or exit/quit):' . PHP_EOL ); $command = strtolower( readline( '> ' ) );
+
+        /** EXECUTE */
+        
+        if( $command && in_array( strtolower( $command ), $commands ) ){
+            
+            pclose( popen( 'php ' . __DIR__ . '/run ' . $command, 'w' ) ); $command = null; }
+
+        /** EXIT */
+        
+        else if( preg_match( '/^(exit|quit|die)$/i', $command ) ){
+
+            die(); }
+
+        /** INVALID */
+        
+        else if( $command ){
+
+            Log::error( PHP_EOL . 'Invalid command "' . $command . '"!' ); }
+
+        /** RESET */
+
+        $command = null; } }
+
+/** DIE */
+
+die();
+
+?>

@@ -1,0 +1,12 @@
+storage/
+vendor/
+node_modules/
+dist/
+
+/options.php
+/.env
+/composer.phar
+/composer.lock
+
+.DS_Store
+Thumbs.db

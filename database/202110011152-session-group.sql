@@ -1,0 +1,1 @@
+ALTER TABLE `sessions` ADD `group` int(11) NOT NULL DEFAULT 0;

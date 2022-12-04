@@ -1,0 +1,6 @@
+{
+    "name": "{{ namepsace |lower }}",
+    "description": "CC API package",
+    "type": "library",
+    "version": "1.0.0"
+}

@@ -1,0 +1,9 @@
+RewriteEngine on
+
+# Exclude
+
+RewriteRule ^(App)($|/) - [L]
+
+# Redirect all to index.php
+
+RewriteRule ^/? index.php [NC,L]

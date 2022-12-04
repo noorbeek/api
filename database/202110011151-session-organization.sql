@@ -1,0 +1,1 @@
+ALTER TABLE `sessions` ADD `organization` int(11) NOT NULL DEFAULT 0;
